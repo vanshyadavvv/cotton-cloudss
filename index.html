@@ -3,19 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home Decor Store</title>
+  <title>Cotton Cloud Jewellery & Home Accents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f8fafc;
+      --bg: #fcfbf9;
       --card-bg: #ffffff;
-      --text: #0f172a;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
-      --whatsapp: #25d366;
-      --whatsapp-hover: #1ebd59;
-      --whatsapp-text: #ffffff;
+      --text-main: #18181b;
+      --text-muted: #71717a;
+      --border: #e4e4e7;
+      --brand: #09090b;
+      --accent: #25d366;
+      --accent-hover: #1ebd59;
+      --discount-bg: #fef2f2;
+      --discount-text: #dc2626;
+      --save-green: #15803d;
       --radius: 12px;
-      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-serif: 'Playfair Display', serif;
     }
 
     * {
@@ -25,39 +33,215 @@
     }
 
     body {
-      font-family: var(--font);
+      font-family: var(--font-body);
       background-color: var(--bg);
-      color: var(--text);
+      color: var(--text-main);
       line-height: 1.5;
-      padding: 2rem 1rem;
+      -webkit-font-smoothing: antialiased;
     }
 
-    header {
-      max-width: 1100px;
-      margin: 0 auto 3rem auto;
+    /* Top Strip */
+    .promo-strip {
+      background-color: var(--brand);
+      color: #fafafa;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-align: center;
+      padding: 0.6rem 1rem;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background-color: rgba(252, 251, 249, 0.94);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--brand);
+    }
+
+    .nav-logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .nav-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cart-trigger-btn {
+      position: relative;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      padding: 0.5rem 1.1rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--brand);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .cart-trigger-btn:hover {
+      background-color: var(--brand);
+      color: white;
+      border-color: var(--brand);
+    }
+
+    .cart-trigger-btn.bump {
+      animation: buttonBounce 0.35s ease;
+    }
+
+    @keyframes buttonBounce {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    .cart-badge {
+      background-color: var(--accent);
+      color: white;
+      font-size: 0.75rem;
+      border-radius: 9999px;
+      padding: 0.15rem 0.55rem;
+      font-weight: 800;
+    }
+
+    /* Hero */
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem 2.5rem 1.5rem;
       text-align: center;
     }
 
-    header h1 {
-      font-size: 2.25rem;
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: #f4f4f5;
       color: var(--text-muted);
-      font-size: 1.125rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      margin-bottom: 1.25rem;
     }
 
-    .container {
-      max-width: 1100px;
+    .hero-heading {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 2.5rem auto;
+      line-height: 1.6;
+    }
+
+    /* Search & Filter Toolbar */
+    .toolbar {
+      max-width: 800px;
+      margin: 0 auto 3rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      outline: none;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      transition: border-color 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--brand);
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .pill-btn {
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 1.2rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pill-btn.active, .pill-btn:hover {
+      background: var(--brand);
+      color: white;
+      border-color: var(--brand);
+    }
+
+    /* Product Grid */
+    .catalog-container {
+      max-width: 1240px;
       margin: 0 auto;
+      padding: 0 1.5rem 5rem 1.5rem;
     }
 
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 2rem;
     }
 
@@ -68,128 +252,1009 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
     }
 
     .product-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+      box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.08);
+    }
+
+    .image-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background-color: #f4f4f5;
+      overflow: hidden;
     }
 
     .product-image {
       width: 100%;
-      height: 280px;
+      height: 100%;
       object-fit: cover;
-      background-color: #f1f5f9;
+      transition: transform 0.4s ease;
     }
 
-    .product-info {
+    .product-card:hover .product-image {
+      transform: scale(1.05);
+    }
+
+    .badge-discount {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--discount-bg);
+      color: var(--discount-text);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.65rem;
+      border-radius: 6px;
+    }
+
+    .card-content {
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
 
+    .stock-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #047857;
+      margin-bottom: 0.5rem;
+    }
+
+    .stock-dot {
+      width: 6px;
+      height: 6px;
+      background: #047857;
+      border-radius: 50%;
+    }
+
     .product-title {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 700;
+      line-height: 1.35;
+      color: var(--brand);
       margin-bottom: 0.5rem;
     }
 
     .product-desc {
+      font-size: 0.88rem;
       color: var(--text-muted);
-      font-size: 0.95rem;
+      line-height: 1.5;
       margin-bottom: 1.25rem;
       flex-grow: 1;
     }
 
-    .product-price {
-      font-size: 1.5rem;
-      font-weight: 700;
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
       margin-bottom: 1.25rem;
     }
 
-    .whatsapp-btn {
-      display: inline-flex;
+    .price-final {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--brand);
+    }
+
+    .price-original {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .btn-add-cart {
+      background-color: var(--brand);
+      color: white;
+      border: 1px solid var(--brand);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      background-color: var(--whatsapp);
-      color: var(--whatsapp-text);
-      text-decoration: none;
+    }
+
+    .btn-add-cart:hover {
+      background-color: #27272a;
+    }
+
+    .btn-add-cart.added-success {
+      background-color: #15803d;
+      border-color: #15803d;
+    }
+
+    .btn-quick-wa {
+      background-color: transparent;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+      padding: 0.65rem 1rem;
+      border-radius: 8px;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .btn-quick-wa:hover {
+      background-color: #f0fdf4;
+      border-color: #86efac;
+    }
+
+    /* Notification Toast */
+    .cart-toast {
+      position: fixed;
+      bottom: 95px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background-color: var(--brand);
+      color: white;
+      padding: 0.75rem 1.4rem;
+      border-radius: 9999px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      z-index: 95;
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .cart-toast.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .cart-toast-btn {
+      background: white;
+      color: var(--brand);
+      border: none;
+      padding: 0.35rem 0.8rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+
+    /* Cart Drawer / Slide-Over */
+    .cart-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -480px;
+      width: 100%;
+      max-width: 480px;
+      height: 100%;
+      background: white;
+      z-index: 110;
+      box-shadow: -4px 0 25px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cart-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .cart-drawer.active {
+      right: 0;
+    }
+
+    .cart-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .close-cart-btn {
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      line-height: 1;
+    }
+
+    .cart-body {
+      padding: 1.5rem;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    .free-shipping-progress {
+      background: #f4f4f5;
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+      border: 1px solid var(--border);
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 6px;
+      background: #e4e4e7;
+      border-radius: 9999px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .screenshot-alert {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
       padding: 0.85rem 1rem;
       border-radius: 8px;
-      transition: background-color 0.15s ease;
+      font-size: 0.82rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.45;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-item-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #f4f4f5;
+    }
+
+    .cart-item-details {
+      flex-grow: 1;
+    }
+
+    .cart-item-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .cart-item-prices {
+      font-size: 0.88rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cart-item-mrp {
+      text-decoration: line-through;
+      color: var(--text-muted);
+      margin-right: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .qty-controls {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .qty-btn {
+      background: #fafafa;
+      border: none;
+      padding: 0.25rem 0.65rem;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .qty-display {
+      padding: 0 0.65rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* Cart Footer */
+    .cart-footer {
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+      background: #fafafa;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .summary-line.savings {
+      color: var(--save-green);
+      font-weight: 700;
+    }
+
+    .summary-line.total {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--brand);
+      border-top: 1px dashed var(--border);
+      padding-top: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .shipping-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin: 0.5rem 0 1rem 0;
+      line-height: 1.4;
+    }
+
+    .btn-checkout-wa {
       width: 100%;
+      background-color: var(--accent);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.9rem 1rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: background 0.2s ease;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+    }
+
+    .btn-checkout-wa:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-checkout-wa svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .cart-empty {
       text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-muted);
     }
 
-    .whatsapp-btn:hover {
-      background-color: var(--whatsapp-hover);
+    /* Floating WhatsApp Button */
+    .fab-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: var(--accent);
+      color: white;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      z-index: 60;
+      text-decoration: none;
+      transition: transform 0.2s ease;
     }
 
-    .whatsapp-btn svg {
-      width: 20px;
-      height: 20px;
+    .fab-whatsapp:hover {
+      transform: scale(1.08);
+    }
+
+    .fab-whatsapp svg {
+      width: 32px;
+      height: 32px;
       fill: currentColor;
     }
 
     footer {
-      max-width: 1100px;
-      margin: 4rem auto 0 auto;
-      text-align: center;
-      font-size: 0.875rem;
-      color: var(--text-muted);
       border-top: 1px solid var(--border);
-      padding-top: 2rem;
+      background: white;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .hero-heading { font-size: 2.25rem; }
+      .product-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Festive &amp; Home Decor</h1>
-    <p>Curated lighting and decor. Direct orders via WhatsApp.</p>
+  <div class="promo-strip">
+    📦 <strong>Free All-India Shipping</strong> on orders above ₹799 • Direct Factory Pricing
+  </div>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-brand">
+        <img class="nav-logo-img" src="logo.png" alt="Cotton Cloud Logo" />
+        <span class="nav-title">Cotton Cloud</span>
+      </a>
+      <div class="nav-actions">
+        <button class="cart-trigger-btn" id="navCartBtn" onclick="openCart()">
+          <span>🛒 Cart</span>
+          <span class="cart-badge" id="navCartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <span class="hero-badge">Direct Source Pricing • Guaranteed Quality</span>
+    <h1 class="hero-heading">Handpicked Jewellery &amp; Decor</h1>
+    <p class="hero-text">
+      Durable, tarnish-resistant jewelry and handcrafted home accents at prices significantly lower than online marketplaces. Add items to your cart and checkout directly via WhatsApp.
+    </p>
+
+    <div class="toolbar">
+      <input 
+        type="text" 
+        id="searchInput" 
+        class="search-input" 
+        placeholder="Search products by title or description..." 
+        onkeyup="filterDisplay()"
+      />
+      <div class="filter-pills">
+        <button class="pill-btn active" onclick="applyCategory('all', this)">All Items</button>
+        <button class="pill-btn" onclick="applyCategory('jewelry', this)">Jewellery</button>
+        <button class="pill-btn" onclick="applyCategory('decor', this)">Home Decor</button>
+      </div>
+    </div>
   </header>
 
-  <main class="container">
-    <section class="product-grid">
+  <main class="catalog-container">
+    <section class="product-grid" id="productGrid">
 
-      <!-- Product: LED Lanterns -->
-      <article class="product-card">
-        <img 
-          class="product-image" 
-          src="lanterns.jpg" 
-          alt="Decorative Mini LED Lantern Set of 2 (white)" 
-        />
-        <div class="product-info">
-          <h2 class="product-title">Decorative Mini LED Lantern Set of 2 (White)</h2>
+      <!-- Product 1: White Lanterns -->
+      <article class="product-card" data-category="decor" data-id="p1">
+        <div class="image-container">
+          <span class="badge-discount">50% OFF</span>
+          <img class="product-image" src="lanterns.jpg" alt="Decorative White Mini LED Lantern Set of 2" />
+        </div>
+        <div class="card-content">
+          <div class="stock-tag"><span class="stock-dot"></span> In Stock</div>
+          <h2 class="product-title">White Hexagon Mini LED Lanterns (Set of 2)</h2>
           <p class="product-desc">
-            Elevate your home décor with this elegant pair of white LED hanging lanterns. Designed with a classical hurricane style and featuring warm, flickering LED candles, they provide an authentic, safe, and beautiful ambiance for any setting.
+            Classic white cut-out hanging lanterns featuring realistic flickering warm LED candles. 100% flameless, lightweight, and durable for table, pooja, and room ambiance.
           </p>
-          <div class="product-price">₹249.00</div>
-          <a 
-            class="whatsapp-btn" 
-            href="https://wa.me/918955035200?text=Hi%2C%20I%20want%20to%20order%20Decorative%20Mini%20LED%20Lantern%20Set%20of%202%20(white)" 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            <svg viewBox="0 0 24 24">
-              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.697c1.004.548 1.838.835 2.806.835 3.18 0 5.768-2.586 5.768-5.766 0-3.18-2.587-5.767-5.768-5.767zm9.969 5.828c0 5.522-4.478 10-10 10-1.748 0-3.385-.45-4.819-1.238l-4.181 1.097 1.119-4.083c-.904-1.503-1.425-3.26-1.425-5.14 0-5.522 4.478-10 10-10s10 4.478 10 10z"/>
-            </svg>
-            Order via WhatsApp
-          </a>
+          <div class="price-row">
+            <span class="price-final">₹249.00</span>
+            <span class="price-original">₹499.00</span>
+          </div>
+          <div class="btn-group">
+            <button class="btn-add-cart" onclick="addToCart('p1', 'White Hexagon LED Lanterns (Set of 2)', 249, 499, 'lanterns.jpg', this)">
+              + Add to Cart
+            </button>
+            <a class="btn-quick-wa" href="https://wa.me/918955035200?text=Hi%2C%20I%20want%20to%20order%20White%20Hexagon%20LED%20Lanterns%20Set%20of%202%20priced%20at%20Rs.249" target="_blank" rel="noopener noreferrer">
+              Buy Now (Direct WhatsApp)
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 2: Black Moroccan Lanterns -->
+      <article class="product-card" data-category="decor" data-id="p2">
+        <div class="image-container">
+          <span class="badge-discount">50% OFF</span>
+          <img class="product-image" src="black-hex-lanterns.jpg" alt="Black Moroccan Cut LED Lanterns" />
+        </div>
+        <div class="card-content">
+          <div class="stock-tag"><span class="stock-dot"></span> In Stock</div>
+          <h2 class="product-title">Black Hexagon LED Lanterns (Set of 2)</h2>
+          <p class="product-desc">
+            Matte black Moroccan latticework hanging lanterns with built-in battery LED pillar candles. Emits a stunning ambient shadow pattern across walls and tables.
+          </p>
+          <div class="price-row">
+            <span class="price-final">₹249.00</span>
+            <span class="price-original">₹499.00</span>
+          </div>
+          <div class="btn-group">
+            <button class="btn-add-cart" onclick="addToCart('p2', 'Black Hexagon LED Lanterns (Set of 2)', 249, 499, 'black-hex-lanterns.jpg', this)">
+              + Add to Cart
+            </button>
+            <a class="btn-quick-wa" href="https://wa.me/918955035200?text=Hi%2C%20I%20want%20to%20order%20Black%20Hexagon%20LED%20Lanterns%20Set%20of%202%20priced%20at%20Rs.249" target="_blank" rel="noopener noreferrer">
+              Buy Now (Direct WhatsApp)
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 3: Black Hurricane Lanterns -->
+      <article class="product-card" data-category="decor" data-id="p3">
+        <div class="image-container">
+          <span class="badge-discount">50% OFF</span>
+          <img class="product-image" src="black-hurricane-lanterns.jpg" alt="Vintage Black Hurricane LED Lanterns" />
+        </div>
+        <div class="card-content">
+          <div class="stock-tag"><span class="stock-dot"></span> In Stock</div>
+          <h2 class="product-title">Vintage Black Hurricane Lanterns (Set of 2)</h2>
+          <p class="product-desc">
+            Charming vintage globe lanterns in a rustic black finish with warm glowing LED candle bulbs inside. Features a top hanging loop for balconies, dinners, and home decor.
+          </p>
+          <div class="price-row">
+            <span class="price-final">₹249.00</span>
+            <span class="price-original">₹499.00</span>
+          </div>
+          <div class="btn-group">
+            <button class="btn-add-cart" onclick="addToCart('p3', 'Vintage Black Hurricane Lanterns (Set of 2)', 249, 499, 'black-hurricane-lanterns.jpg', this)">
+              + Add to Cart
+            </button>
+            <a class="btn-quick-wa" href="https://wa.me/918955035200?text=Hi%2C%20I%20want%20to%20order%20Vintage%20Black%20Hurricane%20Lanterns%20Set%20of%202%20priced%20at%20Rs.249" target="_blank" rel="noopener noreferrer">
+              Buy Now (Direct WhatsApp)
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 4: Lotus Lamp -->
+      <article class="product-card" data-category="decor" data-id="p4">
+        <div class="image-container">
+          <span class="badge-discount">55% OFF</span>
+          <img class="product-image" src="lotus-lamp.jpg" alt="LED Lotus Candle Set (Pack of 2)" />
+        </div>
+        <div class="card-content">
+          <div class="stock-tag"><span class="stock-dot"></span> In Stock</div>
+          <h2 class="product-title">LED Lotus Candle Lamp Set (Pack of 2)</h2>
+          <p class="product-desc">
+            100% fire-safe blooming lotus design with soothing golden flameless glow (Height 5cm x Width 9.5cm). Battery-operated; perfect for pooja rooms, rangoli, and festive tables.
+          </p>
+          <div class="price-row">
+            <span class="price-final">₹249.00</span>
+            <span class="price-original">₹550.00</span>
+          </div>
+          <div class="btn-group">
+            <button class="btn-add-cart" onclick="addToCart('p4', 'LED Lotus Candle Set (Pack of 2)', 249, 550, 'lotus-lamp.jpg', this)">
+              + Add to Cart
+            </button>
+            <a class="btn-quick-wa" href="https://wa.me/918955035200?text=Hi%2C%20I%20want%20to%20order%20LED%20Lotus%20Candle%20Set%20(Pack%20of%202)%20priced%20at%20Rs.249" target="_blank" rel="noopener noreferrer">
+              Buy Now (Direct WhatsApp)
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 5: Cut Glass Tealights -->
+      <article class="product-card" data-category="decor" data-id="p5">
+        <div class="image-container">
+          <span class="badge-discount">50% OFF</span>
+          <img class="product-image" src="crystal-tealights.jpg" alt="Square Cut-Glass Tealight Candle Holders" />
+        </div>
+        <div class="card-content">
+          <div class="stock-tag"><span class="stock-dot"></span> In Stock</div>
+          <h2 class="product-title">Cut-Glass Square Tealight Holders (Set of 4)</h2>
+          <p class="product-desc">
+            Heavy-gauge geometric cut-glass tealights complete with warm battery-operated flameless LED candles. Shatter-safe bubble wrapping guaranteed.
+          </p>
+          <div class="price-row">
+            <span class="price-final">₹299.00</span>
+            <span class="price-original">₹600.00</span>
+          </div>
+          <div class="btn-group">
+            <button class="btn-add-cart" onclick="addToCart('p5', 'Cut-Glass Tealight Holders (Set of 4)', 299, 600, 'crystal-tealights.jpg', this)">
+              + Add to Cart
+            </button>
+            <a class="btn-quick-wa" href="https://wa.me/918955035200?text=Hi%2C%20I%20want%20to%20order%20Square%20Glass%20Tealight%20Holders%20(Set%20of%204)%20priced%20at%20Rs.299" target="_blank" rel="noopener noreferrer">
+              Buy Now (Direct WhatsApp)
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 6: Korean Butterfly Studs Combo -->
+      <article class="product-card" data-category="jewelry" data-id="p6">
+        <div class="image-container">
+          <span class="badge-discount">71% OFF</span>
+          <img class="product-image" src="korean-butterfly-tops.jpg" alt="Korean Style Butterfly Crystal Stud Earrings" />
+        </div>
+        <div class="card-content">
+          <div class="stock-tag"><span class="stock-dot"></span> In Stock</div>
+          <h2 class="product-title">Trendy Korean Butterfly Tops (Combo of 2 Pairs)</h2>
+          <p class="product-desc">
+            Dainty Korean crystal butterfly stud earrings featuring double-winged accents and sparkling stone cuts. High-polish, lightweight, and hypoallergenic for daily & party styling.
+          </p>
+          <div class="price-row">
+            <span class="price-final">₹249.00</span>
+            <span class="price-original">₹849.00</span>
+          </div>
+          <div class="btn-group">
+            <button class="btn-add-cart" onclick="addToCart('p6', 'Korean Butterfly Tops (Combo of 2 Pairs)', 249, 849, 'korean-butterfly-tops.jpg', this)">
+              + Add to Cart
+            </button>
+            <a class="btn-quick-wa" href="https://wa.me/918955035200?text=Hi%2C%20I%20want%20to%20order%20Korean%20Butterfly%20Tops%20(Combo%20of%202)%20priced%20at%20Rs.249" target="_blank" rel="noopener noreferrer">
+              Buy Now (Direct WhatsApp)
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 7: Cat's Eye Butterfly Studs -->
+      <article class="product-card" data-category="jewelry" data-id="p7">
+        <div class="image-container">
+          <span class="badge-discount">70% OFF</span>
+          <img class="product-image" src="butterfly-earrings.jpg" alt="Ethereal Grace Butterfly Stud Earrings" />
+        </div>
+        <div class="card-content">
+          <div class="stock-tag"><span class="stock-dot"></span> In Stock</div>
+          <h2 class="product-title">Ethereal Grace Cat's Eye Butterfly Studs</h2>
+          <p class="product-desc">
+            Gold-tone butterfly studs crafted with polished cat's eye stones and high-sparkle synthetic crystals. Lightweight, skin-friendly, and durable for party and ethnic wear.
+          </p>
+          <div class="price-row">
+            <span class="price-final">₹149.00</span>
+            <span class="price-original">₹499.00</span>
+          </div>
+          <div class="btn-group">
+            <button class="btn-add-cart" onclick="addToCart('p7', 'Ethereal Grace Butterfly Studs', 149, 499, 'butterfly-earrings.jpg', this)">
+              + Add to Cart
+            </button>
+            <a class="btn-quick-wa" href="https://wa.me/918955035200?text=Hi%2C%20I%20want%20to%20order%20Ethereal%20Grace%20Cat's%20Eye%20Butterfly%20Studs%20priced%20at%20Rs.149" target="_blank" rel="noopener noreferrer">
+              Buy Now (Direct WhatsApp)
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 8: Oxidised Earrings Set 1 -->
+      <article class="product-card" data-category="jewelry" data-id="p8">
+        <div class="image-container">
+          <span class="badge-discount">69% OFF</span>
+          <img class="product-image" src="oxidised-earrings.jpg" alt="Oxidised Artificial Jewellery Earrings (Set 1 - 4 Pairs)" />
+        </div>
+        <div class="card-content">
+          <div class="stock-tag"><span class="stock-dot"></span> In Stock</div>
+          <h2 class="product-title">Trendy Oxidised Jewellery Set 1 (4 Pairs)</h2>
+          <p class="product-desc">
+            Complete value pack of 4 handcrafted pairs in German silver finish: Peacock Jhumkis, Geometric Statement Drops, Lotus Chandeliers, and Classic Floral Tops.
+          </p>
+          <div class="price-row">
+            <span class="price-final">₹249.00</span>
+            <span class="price-original">₹799.00</span>
+          </div>
+          <div class="btn-group">
+            <button class="btn-add-cart" onclick="addToCart('p8', 'Trendy Oxidised Jewellery Set 1 (4 Pairs)', 249, 799, 'oxidised-earrings.jpg', this)">
+              + Add to Cart
+            </button>
+            <a class="btn-quick-wa" href="https://wa.me/918955035200?text=Hi%2C%20I%20want%20to%20order%20Trendy%20Oxidised%20Jewellery%20Set%201%20(4%20Pairs)%20priced%20at%20Rs.249" target="_blank" rel="noopener noreferrer">
+              Buy Now (Direct WhatsApp)
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 9: Oxidised Earrings Set 2 -->
+      <article class="product-card" data-category="jewelry" data-id="p9">
+        <div class="image-container">
+          <span class="badge-discount">69% OFF</span>
+          <img class="product-image" src="oxidised-earrings-set2.jpg" alt="Statement Oxidised Earrings Set 2 (4 Pairs)" />
+        </div>
+        <div class="card-content">
+          <div class="stock-tag"><span class="stock-dot"></span> In Stock</div>
+          <h2 class="product-title">Statement Oxidised Jewellery Set 2 (4 Pairs)</h2>
+          <p class="product-desc">
+            Ethnic antique collection featuring oversized round hoop jhumkas with pearl drops, long peacock cascade earrings, filigree drop jhumkis, and classic bell domes.
+          </p>
+          <div class="price-row">
+            <span class="price-final">₹249.00</span>
+            <span class="price-original">₹799.00</span>
+          </div>
+          <div class="btn-group">
+            <button class="btn-add-cart" onclick="addToCart('p9', 'Statement Oxidised Jewellery Set 2 (4 Pairs)', 249, 799, 'oxidised-earrings-set2.jpg', this)">
+              + Add to Cart
+            </button>
+            <a class="btn-quick-wa" href="https://wa.me/918955035200?text=Hi%2C%20I%20want%20to%20order%20Statement%20Oxidised%20Jewellery%20Set%202%20(4%20Pairs)%20priced%20at%20Rs.249" target="_blank" rel="noopener noreferrer">
+              Buy Now (Direct WhatsApp)
+            </a>
+          </div>
         </div>
       </article>
 
     </section>
   </main>
 
+  <!-- Non-Intrusive Cart Toast Notification -->
+  <div class="cart-toast" id="cartToast">
+    <span>✓ Added to Cart</span>
+    <button class="cart-toast-btn" onclick="openCart()">View Cart</button>
+  </div>
+
+  <!-- Cart Modal / Slide-Over Drawer -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Shopping Cart</h3>
+      <button class="close-cart-btn" onclick="closeCart()">&times;</button>
+    </div>
+
+    <div class="cart-body" id="cartBody">
+      <!-- Generated by JavaScript -->
+    </div>
+
+    <div class="cart-footer" id="cartFooter">
+      <!-- Generated by JavaScript -->
+    </div>
+  </aside>
+
+  <!-- Floating WhatsApp Action Bubble -->
+  <a class="fab-whatsapp" href="https://wa.me/918955035200" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.697c1.004.548 1.838.835 2.806.835 3.18 0 5.768-2.586 5.768-5.766 0-3.18-2.587-5.767-5.768-5.767zm9.969 5.828c0 5.522-4.478 10-10 10-1.748 0-3.385-.45-4.819-1.238l-4.181 1.097 1.119-4.083c-.904-1.503-1.425-3.26-1.425-5.14 0-5.522 4.478-10 10-10s10 4.478 10 10z"/></svg>
+  </a>
+
   <footer>
-    <p>&copy; Festive &amp; Home Decor. Direct orders powered by WhatsApp.</p>
+    <p>&copy; 2026 Cotton Cloud Jewellery. Direct orders powered by WhatsApp.</p>
   </footer>
 
+  <!-- Script Architecture -->
+  <script>
+    let cart = [];
+    let activeCategory = 'all';
+    let toastTimeout;
+
+    function openCart() {
+      document.getElementById('cartOverlay').classList.add('active');
+      document.getElementById('cartDrawer').classList.add('active');
+    }
+
+    function closeCart() {
+      document.getElementById('cartOverlay').classList.remove('active');
+      document.getElementById('cartDrawer').classList.remove('active');
+    }
+
+    function showToast() {
+      const toast = document.getElementById('cartToast');
+      toast.classList.add('visible');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('visible');
+      }, 3000);
+    }
+
+    function addToCart(id, title, price, originalPrice, image, buttonElement) {
+      const existing = cart.find(item => item.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id, title, price, originalPrice, image, qty: 1 });
+      }
+
+      renderCart();
+
+      const navCartBtn = document.getElementById('navCartBtn');
+      navCartBtn.classList.remove('bump');
+      void navCartBtn.offsetWidth;
+      navCartBtn.classList.add('bump');
+
+      if (buttonElement) {
+        const originalText = buttonElement.innerHTML;
+        buttonElement.classList.add('added-success');
+        buttonElement.innerHTML = '✓ Added to Cart!';
+        setTimeout(() => {
+          buttonElement.classList.remove('added-success');
+          buttonElement.innerHTML = originalText;
+        }, 1200);
+      }
+
+      showToast();
+    }
+
+    function updateQty(id, delta) {
+      const item = cart.find(i => i.id === id);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(i => i.id !== id);
+      }
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartBody = document.getElementById('cartBody');
+      const cartFooter = document.getElementById('cartFooter');
+      const navCartCount = document.getElementById('navCartCount');
+
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      navCartCount.innerText = totalItems;
+
+      if (cart.length === 0) {
+        cartBody.innerHTML = `
+          <div class="cart-empty">
+            <p style="font-size: 2.5rem; margin-bottom: 0.5rem;">🛍️</p>
+            <h4>Your cart is empty</h4>
+            <p style="font-size: 0.85rem; margin-top: 0.25rem;">Browse products and add items to order.</p>
+          </div>
+        `;
+        cartFooter.style.display = 'none';
+        return;
+      }
+
+      cartFooter.style.display = 'block';
+
+      let totalMRP = 0;
+      let totalSelling = 0;
+
+      let itemsHtml = `
+        <div class="screenshot-alert">
+          <span>📷</span>
+          <div>
+            <strong>Quick Checkout Tip:</strong> Please take a screenshot of this cart and attach it with your WhatsApp message for immediate dispatch confirmation.
+          </div>
+        </div>
+      `;
+
+      cart.forEach(item => {
+        const lineMRP = item.originalPrice * item.qty;
+        const lineSelling = item.price * item.qty;
+        totalMRP += lineMRP;
+        totalSelling += lineSelling;
+
+        itemsHtml += `
+          <div class="cart-item">
+            <img class="cart-item-img" src="${item.image}" alt="${item.title}" />
+            <div class="cart-item-details">
+              <div class="cart-item-title">${item.title}</div>
+              <div class="cart-item-prices">
+                <span class="cart-item-mrp">₹${lineMRP}</span>
+                <strong style="color: var(--brand);">₹${lineSelling}</strong>
+              </div>
+              <div class="qty-controls">
+                <button class="qty-btn" onclick="updateQty('${item.id}', -1)">-</button>
+                <span class="qty-display">${item.qty}</span>
+                <button class="qty-btn" onclick="updateQty('${item.id}', 1)">+</button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      const totalSavings = totalMRP - totalSelling;
+      const isFreeShipping = totalSelling >= 799;
+      const remainingForFree = 799 - totalSelling;
+      const progressPercent = Math.min(100, (totalSelling / 799) * 100);
+
+      const progressHtml = `
+        <div class="free-shipping-progress">
+          ${isFreeShipping 
+            ? '🎉 <strong>Congratulations! You have unlocked Free Shipping!</strong>' 
+            : `Add items worth <strong>₹${remainingForFree}</strong> more to unlock <strong>FREE Shipping</strong>!`
+          }
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: ${progressPercent}%;"></div>
+          </div>
+        </div>
+      `;
+
+      cartBody.innerHTML = progressHtml + itemsHtml;
+
+      let waText = `*NEW ORDER INQUIRY - COTTON CLOUD*%0A%0A`;
+      waText += `*Items in Cart:*%0A`;
+      cart.forEach((item, idx) => {
+        waText += `${idx + 1}. ${encodeURIComponent(item.title)} x ${item.qty} = Rs.${item.price * item.qty}%0A`;
+      });
+      waText += `%0A-----------------------------%0A`;
+      waText += `*Actual Price (MRP):* Rs.${totalMRP}%0A`;
+      waText += `*Total Discount Savings:* Rs.${totalSavings}%0A`;
+      waText += `*Discounted Subtotal:* Rs.${totalSelling}%0A`;
+      waText += `*Shipping:* ${isFreeShipping ? 'FREE (Orders above Rs.799)' : 'Extra as per delivery location'}%0A`;
+      waText += `-----------------------------%0A`;
+      waText += `*Final Payable (Cart Total):* Rs.${totalSelling}%0A%0A`;
+      waText += `_Note: I have also taken a screenshot of the cart and attached it._`;
+
+      cartFooter.innerHTML = `
+        <div class="summary-line">
+          <span>Actual MRP Total</span>
+          <span>₹${totalMRP}</span>
+        </div>
+        <div class="summary-line savings">
+          <span>Total Savings</span>
+          <span>- ₹${totalSavings}</span>
+        </div>
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span>₹${totalSelling}</span>
+        </div>
+        <div class="summary-line">
+          <span>Shipping Charges</span>
+          <span style="font-weight: 700; color: ${isFreeShipping ? 'var(--save-green)' : 'var(--text-muted)'};">
+            ${isFreeShipping ? 'FREE' : '+ Extra based on location'}
+          </span>
+        </div>
+        <div class="summary-line total">
+          <span>Final Price</span>
+          <span>₹${totalSelling}</span>
+        </div>
+        <p class="shipping-note">
+          * Shipping is calculated as per your delivery pin code. Orders above ₹799 qualify for 100% Free Shipping.
+        </p>
+        <a class="btn-checkout-wa" href="https://wa.me/918955035200?text=${waText}" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.697c1.004.548 1.838.835 2.806.835 3.18 0 5.768-2.586 5.768-5.766 0-3.18-2.587-5.767-5.768-5.767zm9.969 5.828c0 5.522-4.478 10-10 10-1.748 0-3.385-.45-4.819-1.238l-4.181 1.097 1.119-4.083c-.904-1.503-1.425-3.26-1.425-5.14 0-5.522 4.478-10 10-10s10 4.478 10 10z"/></svg>
+          Order Entire Cart via WhatsApp
+        </a>
+      `;
+    }
+
+    function applyCategory(cat, button) {
+      activeCategory = cat;
+      document.querySelectorAll('.pill-btn').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      filterDisplay();
+    }
+
+    function filterDisplay() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.product-card');
+
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        const title = card.querySelector('.product-title').innerText.toLowerCase();
+        const desc = card.querySelector('.product-desc').innerText.toLowerCase();
+
+        const matchesCat = (activeCategory === 'all' || cat === activeCategory);
+        const matchesSearch = title.includes(query) || desc.includes(query);
+
+        card.style.display = (matchesCat && matchesSearch) ? 'flex' : 'none';
+      });
+    }
+
+    // Initialize
+    renderCart();
+  </script>
 </body>
 </html>

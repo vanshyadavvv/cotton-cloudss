@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Decor Store</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --whatsapp: #25d366;
+      --whatsapp-hover: #1ebd59;
+      --whatsapp-text: #ffffff;
+      --radius: 12px;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 2rem 1rem;
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto 3rem auto;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 1.125rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      background-color: #f1f5f9;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background-color: var(--whatsapp);
+      color: var(--whatsapp-text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      transition: background-color 0.15s ease;
+      width: 100%;
+      text-align: center;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: var(--whatsapp-hover);
+    }
+
+    .whatsapp-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 4rem auto 0 auto;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Festive &amp; Home Decor</h1>
+    <p>Curated lighting and decor. Direct orders via WhatsApp.</p>
+  </header>
+
+  <main class="container">
+    <section class="product-grid">
+
+      <!-- Product: LED Lanterns -->
+      <article class="product-card">
+        <img 
+          class="product-image" 
+          src="lanterns.jpg" 
+          alt="Decorative Mini LED Lantern Set of 2 (white)" 
+        />
+        <div class="product-info">
+          <h2 class="product-title">Decorative Mini LED Lantern Set of 2 (White)</h2>
+          <p class="product-desc">
+            Elevate your home décor with this elegant pair of white LED hanging lanterns. Designed with a classical hurricane style and featuring warm, flickering LED candles, they provide an authentic, safe, and beautiful ambiance for any setting.
+          </p>
+          <div class="product-price">₹249.00</div>
+          <a 
+            class="whatsapp-btn" 
+            href="https://wa.me/918955035200?text=Hi%2C%20I%20want%20to%20order%20Decorative%20Mini%20LED%20Lantern%20Set%20of%202%20(white)" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.697c1.004.548 1.838.835 2.806.835 3.18 0 5.768-2.586 5.768-5.766 0-3.18-2.587-5.767-5.768-5.767zm9.969 5.828c0 5.522-4.478 10-10 10-1.748 0-3.385-.45-4.819-1.238l-4.181 1.097 1.119-4.083c-.904-1.503-1.425-3.26-1.425-5.14 0-5.522 4.478-10 10-10s10 4.478 10 10z"/>
+            </svg>
+            Order via WhatsApp
+          </a>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Festive &amp; Home Decor. Direct orders powered by WhatsApp.</p>
+  </footer>
+
+</body>
+</html>

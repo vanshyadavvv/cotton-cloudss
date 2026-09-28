@@ -436,7 +436,6 @@
       letter-spacing: 0.3px;
     }
 
-    /* Trust Chips inside product cards */
     .card-trust-chips {
       display: flex;
       flex-wrap: wrap;
@@ -693,7 +692,7 @@
       background: var(--whatsapp-hover);
     }
 
-    /* Modal With Visible Error Banner */
+    /* Modal with Error Box */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -732,7 +731,6 @@
       margin-bottom: 12px;
     }
 
-    /* Top Modal Error Box */
     .modal-error-alert {
       display: none;
       background: #fee2e2;
@@ -808,7 +806,7 @@
       cursor: pointer;
     }
 
-    /* Professional Storefront Footer */
+    /* Professional Footer */
     footer.site-footer {
       background: #191614;
       color: #f7f4f0;
@@ -1065,7 +1063,7 @@
 
       <div class="footer-policies">
         <span>✓ Direct Dispatch within 24–48 Hours</span>
-        
+        <span>✓ Parcel Opening Video for Instant Damage Exchange</span>
         <span>✓ Pan-India Delivery Support</span>
       </div>
 
@@ -1112,7 +1110,6 @@
       <h4>Delivery Address</h4>
       <p>Confirm your destination to generate your direct order sheet.</p>
       
-      <!-- Top Dynamic Alert Box -->
       <div class="modal-error-alert" id="modalErrorAlert"></div>
 
       <div class="modal-input-group">
@@ -1157,6 +1154,20 @@
 
   <script>
     const products = [
+      {
+        id: "oxidised-jewellery-set1",
+        title: "Oxidised Artificial Jewellery (Set of 4)",
+        description: "Trendy & traditional oxidised earrings combo featuring black oxidised jhumki, chain danglers, peacock design, and floral drop earrings. Lightweight and comfortable.",
+        category: "jewelry",
+        price: 249,
+        mrp: 799,
+        images: [
+          "oxidised-earrings.jpg",
+          "oxidised-combo-1.jpg",
+          "oxidised-combo-2.jpg",
+          "oxidised-combo-3.jpg"
+        ]
+      },
       {
         id: "korean-floral-studs",
         title: "Elegant Korean Floral Stud Earrings",
@@ -1284,21 +1295,8 @@
         price: 249,
         mrp: 600,
         images: ["black-hurricane-lanterns.jpg"]
-      },
-     {
-        id: "oxidised-jewellery-set1",
-        title: "Oxidised Artificial Jewellery (Set of 4)",
-        description: "Trendy & traditional oxidised earrings combo featuring black oxidised jhumki, chain danglers, peacock design, and floral drop earrings. Lightweight and comfortable for festive wear.",
-        category: "jewelry",
-        price: 249,
-        mrp: 799,
-        images: [
-          "oxidised-earrings.jpg",
-          "oxidised-combo-1.jpg",
-          "oxidised-combo-2.jpg",
-          "oxidised-combo-3.jpg"
-        ]
-      },
+      }
+    ];
 
     let cart = [];
     let pendingDirectProduct = null;
@@ -1490,7 +1488,6 @@
         return;
       }
 
-      // 10-digit Indian Mobile Validation
       const phoneRegex = /^[6-9]\d{9}$/;
       if (!phone || !phoneRegex.test(phone)) {
         showError("Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9.", "custPhone");
@@ -1512,7 +1509,6 @@
         return;
       }
 
-      // 6-digit Pincode Validation
       const pincodeRegex = /^\d{6}$/;
       if (!pincode || !pincodeRegex.test(pincode)) {
         showError("Please enter a valid 6-digit Pincode.", "custPincode");

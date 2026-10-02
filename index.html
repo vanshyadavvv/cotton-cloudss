@@ -6,7 +6,7 @@
   <title>Cotton Cloud | Curated Ambient Decor & Contemporary Jewelry</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   
   <style>
     :root {
@@ -49,7 +49,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Top Strip */
     .announcement-bar {
       background: var(--brand-dark);
       color: #fafaf9;
@@ -64,7 +63,6 @@
       color: var(--champagne);
     }
 
-    /* Header */
     header {
       background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(12px);
@@ -143,7 +141,6 @@
       border: 2px solid var(--surface);
     }
 
-    /* Hero Section */
     .brand-hero {
       max-width: 720px;
       margin: 28px auto 14px;
@@ -167,7 +164,6 @@
       line-height: 1.6;
     }
 
-    /* 3-Step Trust Micro-Cards */
     .order-steps-container {
       max-width: 900px;
       margin: 18px auto 26px;
@@ -222,7 +218,6 @@
       }
     }
 
-    /* Search & Categories */
     .catalog-controls {
       max-width: 1180px;
       margin: 10px auto 14px;
@@ -280,7 +275,6 @@
       border-color: var(--brand-dark);
     }
 
-    /* Products Grid */
     .products-container {
       max-width: 1180px;
       margin: 18px auto;
@@ -306,21 +300,20 @@
       box-shadow: var(--shadow-md);
     }
 
-    /* Carousel */
     .slider-container {
       position: relative;
       width: 100%;
       aspect-ratio: 1 / 1;
       background: #f2ece6;
       overflow: hidden;
-      touch-action: pan-y;
+      touch-action: pan-y pinch-zoom;
     }
 
     .slider-track {
       display: flex;
       width: 100%;
       height: 100%;
-      transition: transform 0.3s ease-out;
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: transform;
     }
 
@@ -350,6 +343,11 @@
       color: var(--text-primary);
       z-index: 10;
       transition: all 0.2s ease;
+    }
+
+    .slider-btn:hover {
+      background: #fff;
+      transform: translateY(-50%) scale(1.08);
     }
 
     .slider-btn.prev { left: 8px; }
@@ -494,7 +492,6 @@
       background: var(--brand-hover);
     }
 
-    /* Cart Drawer */
     .cart-drawer-backdrop {
       position: fixed;
       inset: 0;
@@ -692,7 +689,6 @@
       background: var(--whatsapp-hover);
     }
 
-    /* Modal with Error Box */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -729,6 +725,14 @@
       font-size: 0.78rem;
       color: var(--text-secondary);
       margin-bottom: 12px;
+    }
+
+    .saved-address-indicator {
+      display: none;
+      font-size: 0.72rem;
+      color: var(--savings-green);
+      font-weight: 700;
+      margin-bottom: 8px;
     }
 
     .modal-error-alert {
@@ -806,7 +810,6 @@
       cursor: pointer;
     }
 
-    /* Professional Footer */
     footer.site-footer {
       background: #191614;
       color: #f7f4f0;
@@ -882,7 +885,6 @@
       color: #7d756d;
     }
 
-    /* Mobile Sticky Bar */
     .mobile-sticky-bar {
       position: fixed;
       bottom: 0;
@@ -930,7 +932,6 @@
       cursor: pointer;
     }
 
-    /* Floating WhatsApp Button */
     .fab-whatsapp {
       position: fixed;
       bottom: 24px;
@@ -976,12 +977,10 @@
 </head>
 <body>
 
-  <!-- Top Strip -->
   <aside class="announcement-bar" id="announcementBar">
     Complimentary Storewide Delivery • <span>WhatsApp Assistance</span>
   </aside>
 
-  <!-- Navigation -->
   <header>
     <div class="header-inner">
       <a href="#" class="brand-logo">
@@ -1001,13 +1000,11 @@
     </div>
   </header>
 
-  <!-- Hero Header -->
   <section class="brand-hero">
     <h1>Small Details. Beautiful Spaces.</h1>
     <p>Curated décor & jewelry, delivered with personal WhatsApp assistance.</p>
   </section>
 
-  <!-- 3-Step Reassurance Cards -->
   <section class="order-steps-container">
     <div class="step-card">
       <div class="step-num">1</div>
@@ -1032,7 +1029,6 @@
     </div>
   </section>
 
-  <!-- Search & Category Filters -->
   <section class="catalog-controls">
     <input type="text" id="searchInput" class="search-input" placeholder="Search lanterns, lotus candles, earrings...">
     <div class="filter-tabs">
@@ -1042,10 +1038,8 @@
     </div>
   </section>
 
-  <!-- Product Catalog Grid -->
   <main class="products-container" id="productsGrid"></main>
 
-  <!-- Professional Site Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -1063,7 +1057,7 @@
 
       <div class="footer-policies">
         <span>✓ Direct Dispatch within 24–48 Hours</span>
-      
+        <span>✓ Parcel Opening Video for Instant Damage Exchange</span>
         <span>✓ Pan-India Delivery Support</span>
       </div>
 
@@ -1071,7 +1065,6 @@
     </div>
   </footer>
 
-  <!-- Cart Drawer -->
   <div class="cart-drawer-backdrop" id="drawerBackdrop"></div>
   <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
     <div class="cart-header">
@@ -1104,12 +1097,12 @@
     </div>
   </aside>
 
-  <!-- Address Modal with Clear Top Error Banner -->
   <div class="modal-backdrop" id="checkoutModalBackdrop">
     <div class="checkout-modal">
       <h4>Delivery Address</h4>
       <p>Confirm your destination to generate your direct order sheet.</p>
       
+      <div class="saved-address-indicator" id="savedAddressIndicator">✓ Loaded saved address</div>
       <div class="modal-error-alert" id="modalErrorAlert"></div>
 
       <div class="modal-input-group">
@@ -1130,7 +1123,6 @@
     </div>
   </div>
 
-  <!-- Mobile Sticky Bar -->
   <div class="mobile-sticky-bar" id="mobileStickyBar">
     <div class="mobile-sticky-summary">
       <span class="mobile-sticky-count" id="mobileStickyCount">0 Items</span>
@@ -1139,7 +1131,6 @@
     <button class="mobile-sticky-btn" onclick="openCart()">View Bag →</button>
   </div>
 
-  <!-- Floating WhatsApp Action -->
   <a href="https://wa.me/918955035200?text=Hi!%20I'm%20interested%20in%20ordering%20from%20Cotton%20Cloud." 
      class="fab-whatsapp" 
      target="_blank" 
@@ -1153,19 +1144,74 @@
   <div class="toast" id="toast">Added to bag</div>
 
   <script>
+    // Grouped by color variants and set pairings
     const products = [
       {
-        id: "oxidised-jewellery-set1",
-        title: "Oxidised Artificial Jewellery (Set of 4)",
-        description: "Trendy & traditional oxidised earrings combo featuring black oxidised jhumki, chain danglers, peacock design, and floral drop earrings. Lightweight and comfortable.",
-        category: "jewelry",
+        id: "vintage-white-lanterns",
+        title: "Decorative Vintage White Hanging Lanterns Combo",
+        description: "Set of 2 Vintage Hanging LED Lanterns with intricate cutout patterns and built-in LED warmth.",
+        category: "decor",
         price: 249,
-        mrp: 799,
+        mrp: 600,
         images: [
-          "oxidised-earrings.jpg",
-          "oxidised-combo-1.jpg",
-          "oxidised-combo-2.jpg",
-          "oxidised-combo-3.jpg"
+          "white-vintage-lantern-1.png",
+          "white-vintage-lantern-2.jpg",
+          "white-vintage-lantern-3.png"
+        ]
+      },
+      {
+        id: "vintage-black-lanterns",
+        title: "Decorative Vintage Black Hanging LED Lanterns",
+        description: "Antique matte black finish hanging lanterns with built-in LED warmth.",
+        category: "decor",
+        price: 249,
+        mrp: 600,
+        images: ["black-hurricane-lanterns.jpg"]
+      },
+      {
+        id: "white-hurricane-lanterns",
+        title: "Decorative Mini LED Lantern Set of 2 (White)",
+        description: "Classical white hurricane lamp design with warm flickering candle ambiance.",
+        category: "decor",
+        price: 249,
+        mrp: 600,
+        images: [
+          "lanterns.jpg",
+          "lanterns-2.jpg",
+          "lanterns-3.jpg"
+        ]
+      },
+      {
+        id: "hex-lanterns",
+        title: "Decorative Mini LED Lantern Set of 2 (Hexagonal)",
+        description: "Geometric Moroccan cutout lanterns for ambient tabletop glow.",
+        category: "decor",
+        price: 249,
+        mrp: 600,
+        images: ["black-hex-lanterns.jpg"]
+      },
+      {
+        id: "lotus-lamp",
+        title: "LED Lotus Candle Set (Pack of 2)",
+        description: "Safe & flameless blooming lotus design with comforting warm LED glow.",
+        category: "decor",
+        price: 249,
+        mrp: 550,
+        images: [
+          "lotus-lamp.jpg",
+          "lotus-lamp-2.jpg"
+        ]
+      },
+      {
+        id: "crystal-tealights",
+        title: "Premium Crystal-Style Square Glass Tealight Candle",
+        description: "Heavy faceted crystal cut-glass tealight candle holders producing warm, radiant reflections.",
+        category: "decor",
+        price: 299,
+        mrp: 600,
+        images: [
+          "crystal-tealights.jpg",
+          "crystal-tealights-2.jpg"
         ]
       },
       {
@@ -1195,19 +1241,6 @@
         ]
       },
       {
-        id: "vintage-white-lanterns",
-        title: "Decorative Vintage White Hanging Lanterns Combo",
-        description: "Set of 2 Vintage Hanging LED Lanterns with intricate cutout patterns and built-in LED warmth.",
-        category: "decor",
-        price: 249,
-        mrp: 600,
-        images: [
-          "white-vintage-lantern-1.png",
-          "white-vintage-lantern-2.jpg",
-          "white-vintage-lantern-3.png"
-        ]
-      },
-      {
         id: "korean-butterfly-pearl-studs",
         title: "Korean Butterfly Pearl Stud Earrings",
         description: "Charming butterfly pattern combined with sparkling rhinestones and lustrous simulated pearls.",
@@ -1221,28 +1254,26 @@
         ]
       },
       {
-        id: "lotus-lamp",
-        title: "LED Lotus Candle Set (Pack of 2)",
-        description: "Safe & flameless blooming lotus design with comforting warm LED glow.",
-        category: "decor",
-        price: 249,
-        mrp: 550,
-        images: [
-          "lotus-lamp.jpg",
-          "lotus-lamp-2.jpg"
-        ]
+        id: "cat-eye-butterfly",
+        title: "Ethereal Grace Cat's Eye Butterfly Stud Earrings",
+        description: "Delicate cat's eye butterfly studs with subtle shimmer accents.",
+        category: "jewelry",
+        price: 149,
+        mrp: 499,
+        images: ["butterfly-earrings.jpg"]
       },
       {
-        id: "white-hurricane-lanterns",
-        title: "Decorative Mini LED Lantern Set of 2 (White)",
-        description: "Classical white hurricane lamp design with warm flickering candle ambiance.",
-        category: "decor",
+        id: "oxidised-jewellery-set1",
+        title: "Oxidised Artificial Jewellery (Set of 4)",
+        description: "Trendy & traditional oxidised earrings combo featuring black oxidised jhumki, chain danglers, peacock design, and floral drop earrings. Lightweight and comfortable.",
+        category: "jewelry",
         price: 249,
-        mrp: 600,
+        mrp: 799,
         images: [
-          "lanterns.jpg",
-          "lanterns-2.jpg",
-          "lanterns-3.jpg"
+          "oxidised-earrings.jpg",
+          "oxidised-combo-1.jpg",
+          "oxidised-combo-2.jpg",
+          "oxidised-combo-3.jpg"
         ]
       },
       {
@@ -1256,49 +1287,28 @@
           "oxidised-earrings-set2.jpg",
           "oxidised-earrings-set2-1.jpg"
         ]
-      },
-      {
-        id: "crystal-tealights",
-        title: "Premium Crystal-Style Square Glass Tealight Candle",
-        description: "Heavy faceted crystal cut-glass tealight candle holders producing warm, radiant reflections.",
-        category: "decor",
-        price: 299,
-        mrp: 600,
-        images: [
-          "crystal-tealights.jpg",
-          "crystal-tealights-2.jpg"
-        ]
-      },
-      {
-        id: "cat-eye-butterfly",
-        title: "Ethereal Grace Cat's Eye Butterfly Stud Earrings",
-        description: "Delicate cat's eye butterfly studs with subtle shimmer accents.",
-        category: "jewelry",
-        price: 149,
-        mrp: 499,
-        images: ["butterfly-earrings.jpg"]
-      },
-      {
-        id: "hex-lanterns",
-        title: "Decorative Mini LED Lantern Set of 2 (Hexagonal)",
-        description: "Geometric Moroccan cutout lanterns for ambient tabletop glow.",
-        category: "decor",
-        price: 249,
-        mrp: 600,
-        images: ["black-hex-lanterns.jpg"]
-      },
-      {
-        id: "vintage-black-lanterns",
-        title: "Decorative Vintage Black Hanging LED Lanterns",
-        description: "Antique matte black finish hanging lanterns with built-in LED warmth.",
-        category: "decor",
-        price: 249,
-        mrp: 600,
-        images: ["black-hurricane-lanterns.jpg"]
       }
     ];
 
+    // Cart LocalStorage State Setup
     let cart = [];
+    try {
+      const storedCart = localStorage.getItem('cotton_cloud_cart');
+      if (storedCart) {
+        cart = JSON.parse(storedCart);
+      }
+    } catch (e) {
+      cart = [];
+    }
+
+    function saveCartState() {
+      try {
+        localStorage.setItem('cotton_cloud_cart', JSON.stringify(cart));
+      } catch (e) {
+        console.error("Cart save error", e);
+      }
+    }
+
     let pendingDirectProduct = null;
     const productsGrid = document.getElementById('productsGrid');
 
@@ -1313,9 +1323,13 @@
         const savings = Math.round(((product.mrp - product.price) / product.mrp) * 100);
         const hasMultiple = product.images.length > 1;
 
-        const slidesHTML = product.images.map(src => 
-          `<img src="${src}" alt="${product.title}" loading="lazy" class="slide">`
-        ).join('');
+        // Slide 1 uses eager decoding and high priority for quick rendering; rest are lazy-loaded
+        const slidesHTML = product.images.map((src, index) => {
+          if (index === 0) {
+            return `<img src="${src}" alt="${product.title}" fetchpriority="high" decoding="async" class="slide">`;
+          }
+          return `<img src="${src}" alt="${product.title}" loading="lazy" decoding="async" class="slide">`;
+        }).join('');
 
         const dotsHTML = hasMultiple ? `
           <div class="slider-dots">
@@ -1362,6 +1376,7 @@
       initSliders();
     }
 
+    // Touch-Swipe Carousel with Axis Locking
     function initSliders() {
       document.querySelectorAll('[data-slider]').forEach(slider => {
         const track = slider.querySelector('.slider-track');
@@ -1400,19 +1415,37 @@
         }
 
         let startX = 0;
+        let startY = 0;
         let isSwiping = false;
 
         slider.addEventListener('touchstart', (e) => {
           startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
           isSwiping = true;
         }, { passive: true });
+
+        slider.addEventListener('touchmove', (e) => {
+          if (!isSwiping) return;
+          const currentX = e.touches[0].clientX;
+          const currentY = e.touches[0].clientY;
+          const diffX = Math.abs(startX - currentX);
+          const diffY = Math.abs(startY - currentY);
+
+          // Locks vertical scroll if horizontal swipe direction is detected
+          if (diffX > diffY && diffX > 10) {
+            if (e.cancelable) e.preventDefault();
+          }
+        }, { passive: false });
 
         slider.addEventListener('touchend', (e) => {
           if (!isSwiping) return;
           const endX = e.changedTouches[0].clientX;
+          const endY = e.changedTouches[0].clientY;
           const diffX = startX - endX;
+          const diffY = startY - endY;
 
-          if (Math.abs(diffX) > 40) {
+          // Trigger change only if horizontal movement is dominant
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
             if (diffX > 0) {
               index = (index + 1) % total;
             } else {
@@ -1429,6 +1462,36 @@
     const cancelModalBtn = document.getElementById('cancelModalBtn');
     const confirmCheckoutBtn = document.getElementById('confirmCheckoutBtn');
     const modalErrorAlert = document.getElementById('modalErrorAlert');
+    const savedAddressIndicator = document.getElementById('savedAddressIndicator');
+
+    function loadSavedAddress() {
+      try {
+        const saved = localStorage.getItem('cotton_cloud_address');
+        if (saved) {
+          const data = JSON.parse(saved);
+          if (data.name) document.getElementById('custName').value = data.name;
+          if (data.phone) document.getElementById('custPhone').value = data.phone;
+          if (data.address) document.getElementById('custAddress').value = data.address;
+          if (data.city) document.getElementById('custCity').value = data.city;
+          if (data.state) document.getElementById('custState').value = data.state;
+          if (data.pincode) document.getElementById('custPincode').value = data.pincode;
+
+          if (data.name && data.phone && data.pincode) {
+            savedAddressIndicator.style.display = 'block';
+          }
+        }
+      } catch (e) {
+        console.error("Address load error", e);
+      }
+    }
+
+    function saveAddress(data) {
+      try {
+        localStorage.setItem('cotton_cloud_address', JSON.stringify(data));
+      } catch (e) {
+        console.error("Address save error", e);
+      }
+    }
 
     function showError(msg, targetInputId = null) {
       modalErrorAlert.textContent = msg;
@@ -1452,6 +1515,7 @@
 
     function openModal() {
       clearError();
+      loadSavedAddress();
       modal.classList.add('open');
     }
 
@@ -1514,6 +1578,9 @@
         showError("Please enter a valid 6-digit Pincode.", "custPincode");
         return;
       }
+
+      // Persist verified address to LocalStorage
+      saveAddress({ name, phone, address, city, state, pincode });
 
       const orderDateTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
@@ -1600,6 +1667,7 @@ Please confirm product availability and share your official UPI payment details.
         cart.push({ ...product, quantity: 1 });
       }
 
+      saveCartState();
       updateCartUI();
       showToast();
     }
@@ -1613,11 +1681,13 @@ Please confirm product availability and share your official UPI payment details.
         removeFromCart(productId);
         return;
       }
+      saveCartState();
       updateCartUI();
     }
 
     function removeFromCart(productId) {
       cart = cart.filter(i => i.id !== productId);
+      saveCartState();
       updateCartUI();
     }
 
@@ -1647,7 +1717,7 @@ Please confirm product availability and share your official UPI payment details.
 
       itemsList.innerHTML = cart.map(item => `
         <div class="cart-item">
-          <img src="${item.images[0]}" alt="${item.title}">
+          <img src="${item.images[0]}" alt="${item.title}" loading="lazy">
           <div class="cart-item-info">
             <p class="cart-item-title">${item.title}</p>
             <div class="cart-item-pricing">
@@ -1700,7 +1770,9 @@ Please confirm product availability and share your official UPI payment details.
     document.getElementById('closeCartBtn').addEventListener('click', closeCart);
     drawerBackdrop.addEventListener('click', closeCart);
 
+    // Initial Boots
     renderProducts(products);
+    updateCartUI();
   </script>
 </body>
 </html>
